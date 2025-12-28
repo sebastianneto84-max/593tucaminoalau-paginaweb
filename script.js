@@ -315,52 +315,45 @@ function actualizarCampos() {
         gVendedor.style.display = 'block'; iInstruccion.disabled = false;
     }
 
-  // PEGA ESTO AL FINAL DE TU ARCHIVO script.js
-document.addEventListener('DOMContentLoaded', () => {
-    const formulario = document.getElementById('form-postulacion');
-    const mensajeExito = document.getElementById('mensaje-exito');
+  // --- COPIAR DESDE AQUÍ ---
+const miFormulario = document.getElementById('form-postulacion');
+const miMensajeExito = document.getElementById('mensaje-exito');
 
-    if (formulario) {
-        formulario.addEventListener('submit', function(e) {
-            e.preventDefault(); // Esto evita que la página se vaya a la web de FormSubmit
+if (miFormulario) {
+    miFormulario.onsubmit = function(e) {
+        e.preventDefault(); // ¡ESTO es lo que evita que salte a la otra página!
+        console.log("Enviando formulario...");
 
-            const boton = formulario.querySelector('.btn-enviar-postulacion');
-            const textoOriginal = boton.innerText;
-            
-            // Cambiamos el texto del botón para que el usuario sepa que se está enviando
-            boton.innerText = "ENVIANDO...";
-            boton.disabled = true;
+        const boton = miFormulario.querySelector('.btn-enviar-postulacion');
+        boton.innerText = "ENVIANDO...";
+        boton.disabled = true;
 
-            // Recogemos los datos del formulario
-            const datos = new FormData(formulario);
+        const datos = new FormData(miFormulario);
 
-            // Enviamos los datos "por detrás"
-            fetch(formulario.action, {
-                method: 'POST',
-                body: datos,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            })
-            .then(respuesta => {
-                if (respuesta.ok) {
-                    // Si todo sale bien: ocultamos formulario y mostramos mensaje
-                    formulario.style.display = 'none';
-                    mensajeExito.style.display = 'block';
-                    mensajeExito.scrollIntoView({ behavior: 'smooth' });
-                } else {
-                    alert("Hubo un error. Por favor intenta de nuevo.");
-                    boton.innerText = textoOriginal;
-                    boton.disabled = false;
-                }
-            })
-            .catch(error => {
-                alert("Error de conexión. Inténtalo más tarde.");
-                boton.innerText = textoOriginal;
+        // Enviamos los datos por "detrás"
+        fetch(miFormulario.action, {
+            method: "POST",
+            body: datos,
+            headers: {
+                'Accept': 'application/json'
+            }
+        })
+        .then(respuesta => {
+            if (respuesta.ok) {
+                // Si el envío es exitoso:
+                miFormulario.style.display = 'none'; // Borra el formulario de la vista
+                miMensajeExito.style.display = 'block'; // Muestra tu mensaje verde
+                miMensajeExito.scrollIntoView({ behavior: 'smooth' }); // Te lleva al mensaje
+            } else {
+                alert("Error al enviar. Por favor revisa los datos.");
+                boton.innerText = "ENVIAR MI POSTULACIÓN";
                 boton.disabled = false;
-            });
+            }
+        })
+        .catch(error => {
+            alert("Error de conexión. Inténtalo de nuevo.");
+            boton.innerText = "ENVIAR MI POSTULACIÓN";
+            boton.disabled = false;
         });
-    }
-});
-
+    };
 }
