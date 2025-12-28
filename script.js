@@ -314,46 +314,4 @@ function actualizarCampos() {
         gCedula.style.display = 'block'; iCedula.disabled = false;
         gVendedor.style.display = 'block'; iInstruccion.disabled = false;
     }
-
-  // --- COPIAR DESDE AQUÍ ---
-const miFormulario = document.getElementById('form-postulacion');
-const miMensajeExito = document.getElementById('mensaje-exito');
-
-if (miFormulario) {
-    miFormulario.onsubmit = function(e) {
-        e.preventDefault(); // ¡ESTO es lo que evita que salte a la otra página!
-        console.log("Enviando formulario...");
-
-        const boton = miFormulario.querySelector('.btn-enviar-postulacion');
-        boton.innerText = "ENVIANDO...";
-        boton.disabled = true;
-
-        const datos = new FormData(miFormulario);
-
-        // Enviamos los datos por "detrás"
-        fetch(miFormulario.action, {
-            method: "POST",
-            body: datos,
-            headers: {
-                'Accept': 'application/json'
-            }
-        })
-        .then(respuesta => {
-            if (respuesta.ok) {
-                // Si el envío es exitoso:
-                miFormulario.style.display = 'none'; // Borra el formulario de la vista
-                miMensajeExito.style.display = 'block'; // Muestra tu mensaje verde
-                miMensajeExito.scrollIntoView({ behavior: 'smooth' }); // Te lleva al mensaje
-            } else {
-                alert("Error al enviar. Por favor revisa los datos.");
-                boton.innerText = "ENVIAR MI POSTULACIÓN";
-                boton.disabled = false;
-            }
-        })
-        .catch(error => {
-            alert("Error de conexión. Inténtalo de nuevo.");
-            boton.innerText = "ENVIAR MI POSTULACIÓN";
-            boton.disabled = false;
-        });
-    };
 }
