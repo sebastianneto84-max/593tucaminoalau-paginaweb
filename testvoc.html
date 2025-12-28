@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Vocacional Proyectate | Interfaz Profesional</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #64748b;
+            --success: #10b981;
+            --bg: #f8fafc;
+            --card: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+        }
+
+        .header p {
+            opacity: 0.9;
+            font-weight: 300;
+            margin-top: 10px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: -40px auto 60px;
+            padding: 0 20px;
+        }
+
+        .card {
+            background: var(--card);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+
+        .instructions {
+            border: 1px solid #bfdbfe; /* Borde completo celeste suave */
+            border-left: 6px solid var(--primary);
+            background: #dbeafe;
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 40px;
+        }
+
+        .instructions h3 { margin-top: 0; color: var(--primary); }
+
+        .question-grid {
+            display: grid;
+            gap: 15px;
+        }
+
+        .question-item {
+            display: flex;
+            align-items: center;
+            padding: 15px 20px;
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .question-item:hover {
+            border-color: var(--primary);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .q-num {
+            font-weight: 700;
+            color: var(--primary);
+            width: 40px;
+            font-size: 0.9rem;
+        }
+
+        .q-text { flex: 1; font-size: 0.95rem; padding-right: 15px; }
+
+        /* Custom Checkbox */
+        .checkbox-wrapper {
+            position: relative;
+            width: 24px;
+            height: 24px;
+        }
+
+        .checkbox-wrapper input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0; width: 0;
+        }
+
+        .checkmark {
+            position: absolute;
+            top: 0; left: 0;
+            height: 24px; width: 24px;
+            background-color: #eee;
+            border-radius: 6px;
+            transition: 0.2s;
+        }
+
+        .question-item:hover .checkmark { background-color: #e2e8f0; }
+
+        .checkbox-wrapper input:checked ~ .checkmark {
+            background-color: var(--success);
+        }
+
+        .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+            left: 9px; top: 5px;
+            width: 5px; height: 10px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+
+        .checkbox-wrapper input:checked ~ .checkmark:after { display: block; }
+
+        .btn-submit {
+            display: block;
+            width: 100%;
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 18px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 4px 14px 0 rgba(37, 99, 235, 0.39);
+        }
+
+        .btn-submit:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+        #results {
+            display: none;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .result-card {
+            border: 1px solid #e2e8f0;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+
+        .result-card.top { border-top: 5px solid var(--success); background: #f0fdf4; }
+        .result-card.low { border-top: 5px solid #ef4444; background: #fef2f2; }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        .badge-primary { background: #dbeafe; color: #1e40af; }
+        .badge-danger { background: #fee2e2; color: #991b1b; }
+
+        .professions-list { margin-top: 15px; font-size: 0.9rem; color: var(--secondary); }
+
+        footer { text-align: center; padding: 40px; color: var(--text-muted); font-size: 0.85rem; }
+
+/* --- ENCABEZADO MÁS COMPACTO --- */
+.header {
+    background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+    color: white;
+    padding: 30px 20px; /* Reducido de 80px a 30px */
+    text-align: center;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 2.2rem; /* Reducido de 3.5rem para ahorrar espacio vertical */
+    font-weight: 800;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+}
+
+.header p {
+    opacity: 0.95;
+    font-weight: 400;
+    margin-top: 5px; /* Reducido de 15px a 5px */
+    font-size: 1.1rem; /* Un poco más pequeño para compactar */
+}
+
+/* --- CONTENEDOR Y TARJETAS --- */
+.container {
+    max-width: 900px;
+    margin: -20px auto 30px; /* Subimos más la caja para pegarla al header */
+    padding: 0 20px;
+}
+
+.card {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 25px; /* Reducido de 40px a 25px */
+    box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05);
+    margin-bottom: 20px;
+}
+
+/* --- INSTRUCCIONES COMPACTAS --- */
+.instructions {
+    background: yellow;
+    border: 2px solid yellow;
+    border-left: 5px solid orange;
+    padding: 20px; /* Reducido de 35px a 20px */
+    border-radius: 12px;
+    margin-bottom: 25px; /* Menos espacio hacia las preguntas */
+}
+
+.instructions h3 { 
+    font-size: 1.5rem; /* Reducido de 2rem */
+    margin-bottom: 10px;
+    color: black;
+}
+
+.instructions p {
+    font-size: 1.1rem; /* Texto legible pero menos voluminoso */
+    margin-bottom: 8px;
+    color: black;
+}
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>Test Vocacional</h1>
+    <p>Identificación de Intereses Vocacionales y Profesionales.</p>
+</div>
+
+<div class="container">
+    <div class="card">
+        <div class="instructions">
+            <h3>Instrucciones</h3>
+            <p><strong>1. Lee atentamente cada una de las actividades.</p>
+            <p><strong>2. Marca solo aquellas que realmente "Te interesen"</strong> según tu propia decisión.</p>
+            <p><strong>3. Responde con sinceridad para conocer mejor tus intereses vocacionales.</p>
+        </div>
+
+        <form id="vocationalForm">
+            <div id="questionsContainer" class="question-grid">
+                </div>
+            
+            <div style="margin-top: 40px;">
+                <button type="button" class="btn-submit" onclick="processTest()">Analizar mi Perfil Vocacional</button>
+            </div>
+        </form>
+    </div>
+
+    <div id="results" class="card">
+        <h2 style="text-align:center; margin-bottom:30px;">Análisis de Resultados (Tablas I y II)</h2>
+        <div id="topResults"></div>
+        <div id="lowResult"></div>
+        <div class="instructions" style="background: #fff7ed; border-color: #f97316; margin-top:30px;">
+            <p style="color:#9a3412; font-size: 0.9rem;">
+                <em>"Quizá estos resultados no coincidan con lo que habías pensado inicialmente... Investiga sobre la oferta de estudios locales afines a estas áreas."</em>
+            </p>
+        </div>
+        <button type="button" class="btn-submit" style="background:var(--secondary); margin-top:20px;" onclick="window.location.reload()">Reiniciar Test</button>
+    </div>
+
+    <footer>
+        Este test es una adaptación Digital del documento pdf encontrado en repositorio web de la SENESCYT:<br>
+        https://siau.senescyt.gob.ec/wp-content/uploads/2023/07/4.-Proyectate-Test-vocacional-DIRCOM.pdf<br>
+    </footer>
+</div>
+
+<script>
+    const questions = {
+        1: "<strong>Programar programas de computación y explorar nuevas aplicaciones tecnológicas",
+        2: "<strong>Cuidar y tratar animales domésticos y de campo",
+        3: "<strong>Investigar sobre áreas verdes, medio ambiente y cambios climáticos",
+        4: "<strong>Ilustrar, dibujar y animar digitalmente",
+        5: "<strong>Seleccionar, capacitar y motivar al personal de una organización/empresa",
+        6: "<strong>Realizar excavaciones para descubrir restos del pasado",
+        7: "<strong>Resolver problemas de cálculo para construir un puente",
+        8: "<strong>Investigar organismos vivos para elaborar vacunas",
+        9: "<strong>Tocar un instrumento y componer música",
+        10: "<strong>Planificar cuáles son las metas de una organización pública o privada",
+        11: "<strong>Diseñar y planificar producción de artículos (muebles, autos, empaques)",
+        12: "<strong>Diseñar logotipos y portadas de una revista",
+        13: "<strong>Organizar eventos y atender a sus invitados",
+        14: "<strong>Atender la salud de personas enfermas",
+        15: "<strong>Controlar ingresos y egresos de fondos y presentar el balance final de una empresa",
+        16: "<strong>Hacer experimentos con plantas (frutas, árboles, flores)",
+        17: "<strong>Diseñar planos para viviendas, edificios y ciudades",
+        18: "<strong>Investigar y elaborar productos farmacéuticos",
+        19: "<strong>Hacer propuestas y estrategias para relaciones económicas entre países",
+        20: "<strong>Pintar, hacer cuadros e ilustrar libros de arte",
+        21: "<strong>Elaborar campañas para introducir un nuevo producto al mercado",
+        22: "<strong>Examinar y tratar los problemas visuales",
+        23: "<strong>Defender a clientes o empresas en juicios de diferente índole",
+        24: "<strong>Diseñar máquinas que pueden simular actividades humanas",
+        25: "<strong>Investigar las causas y efectos de los trastornos emocionales",
+        26: "<strong>Supervisar las ventas de un centro comercial",
+        27: "<strong>Atender y realizar ejercicios a personas con limitaciones físicas",
+        28: "<strong>Prepararse para ser modelo profesional",
+        29: "<strong>Aconsejar a las personas sobre planes de ahorro e inversiones",
+        30: "<strong>Elaborar mapas y planos para análisis de datos geográficos",
+        31: "<strong>Diseñar juegos interactivos electrónicos para computadoras",
+        32: "<strong>Realizar el control de calidad de los alimentos",
+        33: "<strong>Tener un negocio propio de tipo comercial",
+        34: "<strong>Escribir artículos periodísticos, cuentos, novelas y otros",
+        35: "<strong>Redactar guiones y libretos para un programa de televisión",
+        36: "<strong>Organizar un plan de distribución y venta de un gran almacén",
+        37: "<strong>Estudiar la diversidad cultural en el ámbito rural y urbano",
+        38: "<strong>Gestionar convenios internacionales para programas culturales",
+        39: "<strong>Crear coreografías para grupos de danza",
+        40: "<strong>Investigar la reproducción de peces, camarones y animales marinos",
+        41: "<strong>Dedicarse a crear productos alimenticios de consumo masivo",
+        42: "<strong>Gestionar proyectos de desarrollo en instituciones educativas/sociales",
+        43: "<strong>Rediseñar y decorar espacios físicos (viviendas, oficinas)",
+        44: "<strong>Administrar empresas de turismo y agencias de viajes",
+        45: "<strong>Aplicar métodos alternativos a la medicina tradicional",
+        46: "<strong>Diseñar ropa para niños, jóvenes y adultos",
+        47: "<strong>Organizar campañas sobre temas de salud e higiene",
+        48: "<strong>Manejar aparatos tecnológicos en estaciones, barcos o aviones",
+        49: "<strong>Estudiar idiomas extranjeros para hacer traducciones",
+        50: "<strong>Restaurar objetos de arte",
+        51: "<strong>Reparar artefactos electrónicos y computadoras",
+        52: "<strong>Actuar en programas de televisión, teatro o cine",
+        53: "<strong>Investigar y responder a nuevos mercados",
+        54: "<strong>Atender la salud dental de las personas",
+        55: "<strong>Tratar a personas con problemas psicológicos",
+        56: "<strong>Crear estrategias de promoción y venta de productos",
+        57: "<strong>Planificar dietas para personas diabéticas o con sobrepeso",
+        58: "<strong>Trabajar en empresa petrolera en control de producción",
+        59: "<strong>Administrar una empresa industrial o privada",
+        60: "<strong>Tener un taller de mantenimiento de vehículos y maquinaria",
+        61: "<strong>Ejecutar proyectos de extracción minera y metalúrgica",
+        62: "<strong>Aplicar conocimientos de estadística en encuestas",
+        63: "<strong>Diseñar programas para niños con discapacidad",
+        64: "<strong>Aplicar conocimientos de cálculo para diseñar estructuras",
+        65: "<strong>Fotografiar hechos históricos, paisajes y rostros",
+        66: "<strong>Trabajar en museos y bibliotecas nacionales e internacionales",
+        67: "<strong>Ser parte de un equipo de debates",
+        68: "<strong>Asistir a ejecutivos multinacionales con manejo de idiomas",
+        69: "<strong>Estudiar la influencia entre corrientes marinas y el clima",
+        70: "<strong>Conocer las leyes de la comunidad en general",
+        71: "<strong>Asesorar en la compra de bienes raíces",
+        72: "<strong>Estudiar grupos sociales, costumbres y comportamiento",
+        73: "<strong>Explorar el espacio sideral y los planetas",
+        74: "<strong>Mejorar la salud mediante diversas terapias de comportamiento",
+        75: "<strong>Decorar patios de casas y parques públicos",
+        76: "<strong>Administrar servicios de comidas en hoteles o restaurantes",
+        77: "<strong>Trabajar como presentador de TV o locutor de radio",
+        78: "<strong>Diseñar y ejecutar programas de arte",
+        79: "<strong>Administrar la ocupación del espacio físico de ciudades",
+        80: "<strong>Organizar, planificar y administrar centros educativos"
+    };
+
+    // Mapeo IDÉNTICO a la TABLA I del documento 
+    const mapping = {
+        "AREA I: Arte y Creatividad / AREA II: Ciencias Sociales": [4, 6, 9, 12, 13, 23, 20, 25, 28, 34, 31, 37, 35, 38, 39, 43, 49, 42, 46, 52, 50, 55, 65, 63, 67, 66, 68, 70, 75, 72, 77, 78],
+        "AREA III: Económica, Administrativa y Financiera": [5, 10, 15, 19, 21, 26, 29, 33, 36, 44, 53, 56, 59, 62, 71, 80],
+        "AREA IV: Ciencia y Tecnología": [1, 11, 7, 17, 18, 24, 30, 48, 41, 51, 58, 61, 64, 73, 79, 80],
+        "AREA V: Ciencias Ecológicas, Biológicas y de Salud": [2, 8, 3, 14, 16, 22, 27, 40, 32, 45, 47, 54, 57, 69, 74, 76]
+    };
+
+    // Profesiones de la TABLA II 
+    const professions = {
+        "AREA I: Arte y Creatividad / AREA II: Ciencias Sociales": "Diseño Gráfico, Interiores, Modas, Joyas, Artes Plásticas, Fotografía, Cine, Video, Psicología, Trabajo Social, Idiomas, Derecho, Periodismo, Arqueología, Relaciones Internacionales, Publicidad.",
+        "AREA III: Económica, Administrativa y Financiera": "Administración de Empresas, Contabilidad, Auditoría, Marketing, Comercio Exterior, Banca y Finanzas, Recursos Humanos, Hotelería y Turismo.",
+        "AREA IV: Ciencia y Tecnología": "Ingeniería en Sistemas, Civil, Arquitectura, Electrónica, Mecatrónica, Minas, Petróleo, Física, Matemáticas, Astronomía, Carreras Militares (Marina, Aviación).",
+        "AREA V: Ciencias Ecológicas, Biológicas y de Salud": "Biología, Bioquímica, Medicina, Odontología, Veterinaria, Nutrición, Agronomía, Gastronomía, Ingeniería Ambiental, Zootecnia."
+    };
+
+    // Renderizar preguntas
+    const container = document.getElementById('questionsContainer');
+    Object.keys(questions).forEach(id => {
+        const div = document.createElement('div');
+        div.className = 'question-item';
+        div.onclick = () => {
+            const cb = document.getElementById(`q${id}`);
+            cb.checked = !cb.checked;
+        };
+        div.innerHTML = `
+            <span class="q-num">${id}.</span>
+            <span class="q-text">${questions[id]}</span>
+            <div class="checkbox-wrapper">
+                <input type="checkbox" id="q${id}">
+                <span class="checkmark"></span>
+            </div>
+        `;
+        container.appendChild(div);
+    });
+
+    function processTest() {
+        let scores = {
+            "AREA I: Arte y Creatividad / AREA II: Ciencias Sociales": 0,
+            "AREA III: Económica, Administrativa y Financiera": 0,
+            "AREA IV: Ciencia y Tecnología": 0,
+            "AREA V: Ciencias Ecológicas, Biológicas y de Salud": 0
+        };
+
+        // Conteo según respuestas
+        Object.keys(questions).forEach(id => {
+            if (document.getElementById(`q${id}`).checked) {
+                for (const area in mapping) {
+                    if (mapping[area].includes(parseInt(id))) {
+                        scores[area]++;
+                    }
+                }
+            }
+        });
+
+        const sorted = Object.entries(scores).sort((a, b) => b[1] - a[1]);
+        
+        // Mostrar resultados
+        document.getElementById('vocationalForm').parentElement.style.display = 'none';
+        document.getElementById('results').style.display = 'block';
+
+        const topDiv = document.getElementById('topResults');
+        topDiv.innerHTML = `
+            <div class="result-card top">
+                <span class="badge badge-primary">1ra Opción Vocacional</span>
+                <h3>${sorted[0][0]}</h3>
+                <p>Puntaje: <strong>${sorted[0][1]} puntos</strong></p>
+                <div class="professions-list"><strong>Profesiones sugeridas:</strong> ${professions[sorted[0][0]]}</div>
+            </div>
+            <div class="result-card top">
+                <span class="badge badge-primary">2da Opción Vocacional</span>
+                <h3>${sorted[1][0]}</h3>
+                <p>Puntaje: <strong>${sorted[1][1]} puntos</strong></p>
+                <div class="professions-list"><strong>Profesiones sugeridas:</strong> ${professions[sorted[1][0]]}</div>
+            </div>
+        `;
+
+        document.getElementById('lowResult').innerHTML = `
+            <div class="result-card low">
+                <span class="badge badge-danger">Menor Interés</span>
+                <h3>${sorted[3][0]}</h3>
+                <p>Puntaje: <strong>${sorted[3][1]} puntos</strong></p>
+            </div>
+        `;
+
+        window.scrollTo(0, 0);
+    }
+</script>
+
+</body>
+</html>

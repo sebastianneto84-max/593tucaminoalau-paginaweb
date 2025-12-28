@@ -1,0 +1,2380 @@
+/* ====== CONFIGURACIÓN GENERAL ====== */
+:root {
+  --accent: #ff5722;
+  --accent-2: #ff5722;
+  --box-accent: #7C9959;
+  --button-accent: #7C9959;
+  --bg: white;
+  --card: #ffffff;
+  --text: #0f172a;
+  --muted: #6b7280;
+  --border: #e2e8f0;
+  --radius: 12px;
+  --shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+  --brown: #66280a;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body { 
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+  background: var(--bg); 
+  color: var(--text); 
+  line-height: 1.6; 
+}
+
+a { color: inherit; text-decoration: none; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+main .container > section { padding: 2rem 0; }
+h1, h2, h3 { line-height: 1.2; margin-bottom: 1rem; }
+h1 { font-size: 2.5rem; }
+h2 { font-size: 1.75rem; color: var(--accent); }
+p { margin-bottom: 1rem; }
+
+/* ====== HEADER Y NAVEGACIÓN ====== */
+header { 
+  background: linear-gradient(90deg, var(--accent), var(--accent-2)); 
+  color: white; 
+  position: sticky; 
+  top: 0; 
+  z-index: 100; 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); 
+  padding: 0.5rem 0; 
+}
+.nav-inner { display: flex; align-items: center; justify-content: space-between; }
+.brand { display: flex; align-items: center; gap: 15px; }
+.logo-img { height: 80px; width: auto; }
+.brand-name { font-weight: 900; font-size: 1.9rem; }
+.brand-subtitle { font-size: 1.1rem; margin-top: 2px; color: rgba(255, 255, 255, 0.9); }
+nav .menu { display: flex; gap: 1rem; align-items: center; }
+nav .menu a { color: white; padding: 10px 16px; border-radius: 8px; font-weight: 600; font-size: 1.1rem; transition: background 0.2s; }
+nav .menu a:hover { background: rgba(255, 255, 255, 0.1); }
+
+
+
+/* ====== HEADER MEJORADO ====== */
+header { 
+  background: linear-gradient(90deg, var(--accent), var(--accent-2)); 
+  color: white; 
+  position: sticky; top: 0; z-index: 1000; 
+  padding: 0.8rem 0;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.nav-inner { 
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between; 
+  flex-wrap: wrap; /* Permite que el menú baje si no hay espacio */
+  gap: 15px;
+}
+.brand { display: flex; align-items: center; gap: 12px; }
+.logo-img { height: 60px; width: auto; }
+.brand-name { font-weight: 900; font-size: 1.6rem; line-height: 1; }
+.brand-subtitle { font-size: 0.9rem; color: rgba(255, 255, 255, 0.9); }
+
+nav .menu { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+nav .menu a { 
+  color: white; 
+  padding: 8px 12px; 
+  border-radius: 6px; 
+  font-weight: 600; 
+  font-size: 0.95rem; 
+  transition: 0.3s; 
+}
+nav .menu a:hover { background: rgba(255, 255, 255, 0.2); }
+
+
+
+/* ====== BOTONES ====== */
+.btn, button.btn { 
+  background: var(--button-accent); 
+  color: white; 
+  padding: 12px 24px; 
+  border-radius: 10px; 
+  border: none; 
+  font-weight: 700; 
+  cursor: pointer; 
+  transition: all 0.2s; 
+  box-shadow: 0 6px 18px rgba(124, 153, 89, 0.3); 
+  display: inline-block; 
+  text-align: center; 
+  font-size: 1rem; 
+}
+.btn:hover, button.btn:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(124, 153, 89, 0.4); }
+.btn.ghost { background: transparent; border: 2px solid var(--border); color: var(--text); box-shadow: none; }
+.btn.btn-grande { font-size: 1.1rem; padding: 1rem 2rem; }
+.btn-naranja { background-color: var(--accent) !important; box-shadow: 0 6px 18px rgba(255, 87, 34, 0.3) !important; }
+
+/* ====== SECCIÓN HERO (RECTÁNGULO PERFECTO) ====== */
+.hero { 
+  display: grid; 
+  grid-template-columns: 1fr 1fr; 
+  gap: 2rem; 
+  align-items: stretch; /* Alinea altura de columnas */
+  margin-top: 1rem;
+}
+
+.hero > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Título arriba, caja verde abajo */
+}
+
+.centered-title { 
+  text-align: center; 
+  font-size: 2.6rem; 
+  margin-top: 0;
+  margin-bottom: 1.5rem; 
+  color: #66280a; 
+}
+
+.subtitle-box-wrapper { 
+  text-align: left; 
+  margin: 0; 
+}
+
+.subtitle-box { 
+  display: block; 
+  background-color: var(--box-accent); 
+  color: white; 
+  padding: 25px; 
+  border-radius: 12px; 
+  font-size: 1.45rem; 
+  font-weight: 700; 
+  text-transform: uppercase;
+  text-align: justify 
+}
+
+.hero-image { 
+  height: 100%; 
+}
+
+.hero-image img { 
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; /* Ajusta imagen sin deformar */
+  border-radius: var(--radius); 
+  display: block;
+}
+
+/* ====== PRUEBA RÁPIDA ====== */
+.quick-test-section { padding: 3rem 0; }
+.quick-test-cta {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+.quick-test-cta p {
+  color: var(--brown);
+  font-size: 2.5rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* ====== EVALUACIÓN Y SIMULADORES (SOLUCIÓN SEPARACIÓN BOTONES) ====== */
+/* ====== SECCIÓN EVALUACIÓN: CAJAS NEGRAS / TEXTO BLANCO / TEXTO JUSTIFICADO ====== */
+
+#evaluacion-simuladores {
+  padding: 0rem;
+  background-color: #ffffff; /* El fondo de la página sigue siendo blanco */
+}
+
+#evaluacion-simuladores .grid-evaluacion {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+  align-items: stretch;
+  margin-bottom: 1rem;
+}
+
+/* La Tarjeta */
+.card-personalizada {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: 2px solid #7C9959; /* Borde Naranja */
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+/* Encabezado Naranja */
+.header-caja {
+  background-color: white;
+  color: var(--brown);
+  padding: 1.2rem;
+  font-weight: 800;
+  text-align: center;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+}
+
+/* EL INTERIOR NEGRO QUE QUERÍAS */
+.body-negro {
+  background-color: var(--box-accent); /* Usa el verde de "Mide tu puntaje" */
+  color: black;           /* Mantenemos letras blancas para que resalten */
+  padding: 1.5rem;
+  flex-grow: 1;
+}
+
+
+/* Estilos comunes para ambas listas */
+.lista-emojis, .lista-numerada-blanca {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0;
+}
+
+.lista-emojis li, .lista-numerada-blanca li {
+  position: relative;
+  padding-left: 35px !important;
+  margin-bottom: 15px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  text-align: left; /* Texto Justificado */
+}
+
+/* --- ICONOS EMOJIS (Columna Izquierda) --- */
+/* --- NUEVA REGLA PARA AGRANDAR EMOJIS --- */
+.lista-emojis li {
+  display: flex;               /* Alinea emoji y texto en una fila */
+  align-items: flex-start;      /* Alinea el emoji con la primera línea de texto */
+  gap: 15px;                   /* Espacio entre el emoji y el texto */
+  padding-left: 0 !important;   /* Quitamos el padding anterior */
+  margin-bottom: 18px;          /* Un poco más de espacio entre ítems */
+  font-size: 1rem;              /* Ajuste de tamaño de texto para legibilidad */
+  line-height: 1.4;
+  text-align: justify;
+}
+
+.lista-emojis li::before {
+  position: static !important;  /* Cambiamos de absoluto a estático para que fluya con Flex */
+  font-size: 1.8rem;            /* Emojis más grandes (ajusta este valor a tu gusto) */
+  line-height: 1;               /* Evita que el tamaño del emoji empuje el texto hacia abajo */
+  flex-shrink: 0;               /* Evita que el emoji se aplaste si hay mucho texto */
+  margin-top: -2px;             /* Ajuste fino para centrarlo visualmente con el texto */
+}
+.lista-emojis li:nth-child(1)::before { content: "🏫"; position: absolute; left: 0; }
+.lista-emojis li:nth-child(2)::before { content: "🕵️‍♀️"; position: absolute; left: 0; }
+.lista-emojis li:nth-child(3)::before { content: "🆕"; position: absolute; left: 0; }
+.lista-emojis li:nth-child(4)::before { content: "💎"; position: absolute; left: 0; }
+.lista-emojis li:nth-child(5)::before { content: "📝"; position: absolute; left: 0; }
+.lista-emojis li:nth-child(6)::before { content: "💻"; position: absolute; left: 0; }
+
+/* --- NUMERACIÓN BLANCA (Columna Derecha) --- */
+.lista-numerada-blanca {
+  counter-reset: mi-contador;
+}
+
+.lista-numerada-blanca li {
+  counter-increment: mi-contador;
+}
+
+.lista-numerada-blanca li::before {
+  content: counter(mi-contador) ".";
+  position: absolute;
+  left: 0;
+  color: black; /* Números en Naranja para que resalten */
+  font-weight: 900;
+  font-size: 1.1rem;
+}
+
+/* Imagen Central */
+.img-redondeada {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+  border: 2px solid #ff5722;
+}
+
+/* Botón */
+.btn-naranja-redondeado {
+  background-color: #ff5722 !important;
+  color: white !important;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  font-weight: 800;
+  border: 2px solid #000;
+  text-decoration: none;
+  display: inline-block;
+}/* ====== UNIVERSIDADES ====== */
+.info-box { background-color: #fffbe6; border: 2px solid #66280a; border-radius: var(--radius); padding: 2.5rem; text-align: center; margin-bottom: 2.5rem; }
+.info-box h2 { font-size: 2.5rem; color: #66280a; text-transform: uppercase; }
+.grid-universidades { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+.grid-universidades .card { cursor: pointer; transition: transform 0.2s; background: white; padding: 1.5rem; border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); }
+.grid-universidades .card:hover { transform: translateY(-5px); }
+.university-card-header { display: flex; align-items: center; gap: 15px; }
+.university-logo { height: 40px; width: auto; }
+.otras-universidades-box { border: 1px solid var(--border); padding: 2rem; border-radius: var(--radius); margin-top: 2rem; display: inline-block; }
+
+/* ====== TEST VOCACIONAL ====== */
+.custom-info-box { background-color: #fffbe6; border: 2px solid #66280a; border-radius: var(--radius); padding: 2.5rem; text-align: center; margin: 3rem 0 1.5rem; }
+#vocacional .cta-buttons { display: flex; justify-content: center; gap: 2rem; }
+
+/* --- NUEVAS REGLAS PARA AGRANDAR EL TEXTO --- */
+.custom-info-box h2 {
+    font-size: 2.25rem; /* Aumenta el título (antes era ~1.75rem) */
+    margin-bottom: 1.5rem;
+    color: #66280a; /* Manteniendo el color café de la caja */
+}
+
+.custom-info-box p {
+    font-size: 1.5rem; /* Aumenta el párrafo informativo */
+    line-height: 1.4;
+    color: var(--text);
+}
+
+/* ====== SECCIONES OCULTAS (JS) ====== */
+.page-header { text-align: center; padding: 4rem 0; background: #f8f9fa; }
+.about-us-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; padding: 4rem 0; }
+.about-us-card.text-card { padding: 2.5rem; background: #f8f9fa; border-radius: var(--radius); }
+.about-us-card.image-card img { width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius); }
+
+/* ====== MODALES Y FOOTER ====== */
+.modal-backdrop { position: fixed; inset: 0; z-index: 200; background: rgba(0,0,0,0.6); display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: 0.3s; }
+.modal-backdrop.is-visible { opacity: 1; visibility: visible; }
+.modal { background: white; padding: 2rem; border-radius: var(--radius); max-width: 500px; position: relative; }
+.modal-close-btn { position: absolute; top: 10px; right: 15px; font-size: 2rem; cursor: pointer; border: none; background: none; }
+footer { text-align: center; padding: 3rem 0; color: var(--muted); border-top: 1px solid var(--border); margin-top: 2rem; }
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 768px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-image { display: none; }
+  .centered-title, .quick-test-cta p { font-size: 1.8rem; }
+  #evaluacion-simuladores .grid-evaluacion, .about-us-grid { grid-template-columns: 1fr; }
+  .botones-inferiores { gap: 1rem; }
+}
+
+/* ====== ESTILOS PARA PÁGINA INTEGRADAS (GENÉRICO) ====== */
+.full-width { width: 100%; }
+.page-header {
+  text-align: center;
+  padding: 4rem 0 1.5rem; /* <-- 1. CAMBIO: Reducido el espacio inferior */
+  background-color: #f8f9fa;
+  border-bottom: 1px solid var(--border);
+}
+#quienes-somos-section .page-header { border-bottom: none; } /* Quitar borde doble */
+
+/* --- INICIO NUEVA REGLA PARA EL TÍTULO "SOBRE NOSOTROS" --- */
+#quienes-somos-section .page-header h1 {
+  color: var(--accent); /* Aplica el color naranja */
+}
+/* --- FIN NUEVA REGLA --- */
+
+.page-header p {
+  margin: 1rem auto 0; /* <-- 2. CAMBIO: Eliminado el max-width */
+  font-size: 1.5rem;
+  line-height: 2;
+}
+.content-section { max-width: 800px; margin: 2rem auto; }
+.form-container { background: var(--card); padding: 2rem; border-radius: var(--radius); box-shadow: var(--shadow); border: 1px solid var(--border); }
+.form-group { margin-bottom: 1.5rem; }
+.form-group label { display: block; font-weight: 600; margin-bottom: 0.5rem; color: var(--text); }
+.form-group input, .form-group textarea { width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 8px; font-size: 1rem; font-family: inherit; }
+.form-group textarea { resize: vertical; min-height: 120px; }
+.form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--button-accent); box-shadow: 0 0 0 3px rgba(124, 153, 89, 0.2); }
+
+/* ====== NUEVOS ESTILOS PARA SECCIÓN 'QUIÉNES SOMOS' (ACTUALIZADO) ====== */
+#quienes-somos-section { padding-top: 0; }
+.about-us-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  padding: 4rem 0;
+  align-items: center; 
+}
+.about-us-card {
+  border-radius: var(--radius);
+  overflow: hidden; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.about-us-card.text-card {
+  padding: 2.5rem; 
+  background-color: #f8f9fa;
+}
+.about-us-card.text-card h2 { 
+  color: var(--text); 
+  font-size: 2.5rem; 
+  margin-bottom: 1.5rem; 
+}
+.about-us-card.text-card p {
+    font-size: 1.25rem; 
+    line-height: 1.7; 
+}
+.about-us-card.image-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.about-us-card.image-card:hover img { transform: scale(1.05); }
+.values-list { margin-top: 1.5rem; display: flex; flex-direction: column; gap: 1rem; }
+.value-item { display: flex; gap: 1rem; align-items: flex-start; text-align: left; }
+.value-item .value-icon { font-size: 1.5rem; color: var(--button-accent); font-weight: 700; line-height: 1.2; }
+.value-item h3 { 
+    color: var(--text); 
+    margin-bottom: 0.25rem; 
+    font-size: 1.3rem; 
+}
+.value-item p { 
+    color: var(--muted); 
+    margin-bottom: 0; 
+    font-size: 1rem; 
+    line-height: 1.5; 
+}
+.mission-banner {
+    padding: 5rem 0;
+    background-image: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), url('imagenes/banner-mision.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed; 
+    text-align: center;
+    color: white;
+}
+.mission-banner h2 { 
+    color: white; 
+    font-size: 3rem; 
+}
+.mission-banner p { 
+    max-width: 700px; 
+    margin: 1rem auto 0; 
+    font-size: 1.3rem; 
+    line-height: 1.7; 
+    opacity: 0.9; 
+}
+
+/* ====== RESPONSIVE DESIGN ====== */
+@media (max-width: 992px) {
+  #evaluacion-simuladores .grid-evaluacion { grid-template-columns: 1fr; gap: 2.5rem; }
+}
+@media (max-width: 768px) {
+  h1 { font-size: 2rem; }
+  .hero { grid-template-columns: 1fr; }
+  .hero-image { display: none; }
+  nav .menu { display: none; }
+  .subtitle-box { font-size: 1.2rem; padding: 8px 15px; }
+  #evaluacion-simuladores .cta-buttons { flex-direction: column; }
+  .about-us-grid { grid-template-columns: 1fr; }
+  .mission-banner { padding: 3rem 0; background-attachment: scroll; }
+  .mission-banner h2 { font-size: 2rem; }
+}
+
+/* <-- 3. CAMBIO: Añadida la nueva clase para justificar el texto --> */
+.justified-text {
+  text-align: justify;
+}
+
+/* ====== MEJORA SECCIÓN EVALUACIÓN ====== */
+#evaluacion-simuladores {
+  padding: 4rem 0;
+}
+
+#evaluacion-simuladores .grid-evaluacion {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+  align-items: stretch; /* Hace que todas las columnas midan lo mismo */
+  margin-bottom: 3rem;
+}
+
+/* Tarjetas laterales para dar orden */
+.card-elegante {
+  background: #ffffff;
+  padding: 2rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Empuja la caja verde al final */
+}
+
+.titulo-columna {
+  font-size: 1.2rem;
+  color: var(--text);
+  margin-bottom: 1.5rem;
+  font-weight: 800;
+  border-left: 4px solid var(--accent);
+  padding-left: 10px;
+}
+
+.lista-caracteristicas {
+  list-style: none;
+  text-align: left;
+  margin-bottom: 2rem;
+}
+
+.lista-caracteristicas li {
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+  position: relative;
+  padding-left: 20px;
+}
+
+.lista-caracteristicas li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--button-accent);
+  font-weight: bold;
+}
+
+/* Imagen Central */
+.imagen-contenedor img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+/* Texto de la derecha */
+.texto-destacado {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  text-align: justify;
+  color: var(--muted);
+}
+
+/* CAJAS VERDES SOLICITADAS */
+.caja-verde-texto {
+  background-color: var(--button-accent);
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-top: auto; /* Se pega al fondo de la columna */
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  #evaluacion-simuladores .grid-evaluacion {
+    grid-template-columns: 1fr;
+  }
+  .imagen-contenedor {
+    order: -1; /* Mueve la imagen arriba en móviles */
+    height: 300px;
+  }
+}
+
+/* --- Estilo para la nueva cajita blanca --- */
+.caja-blanca-metodos {
+    background-color: #ffffff !important; /* Fondo blanco */
+    color: #000000 !important;            /* Texto negro */
+    text-align: center;                   /* Texto centrado */
+    font-weight: 900;                     /* Texto bien negrito */
+    text-transform: uppercase;            /* Todo en mayúsculas */
+    padding: 15px;                        /* Espacio interno */
+    margin-top: 20px;                     /* Espacio respecto a la lista de arriba */
+    border-radius: 12px;                  /* Bordes redondeados */
+    font-size: 1rem;                      /* Tamaño de la letra */
+    display: block;                       /* Asegura que ocupe el ancho disponible */
+    width: 100%;                          /* Ancho total dentro del contenedor */
+    box-sizing: border-box;               /* Evita que el padding ensanche la caja */
+}
+
+/* 1. Contenedor principal: Mantiene el botón y el contador lado a lado */
+.cta-compra-contenedor {
+  display: flex;
+  align-items: center; /* Alinea verticalmente el botón con el cuadro del contador */
+  justify-content: center;
+  gap: 40px; /* Espacio entre el botón y el contador */
+  margin-top: 3rem;
+  flex-wrap: wrap;
+}
+
+/* 2. El "Marco" que envuelve Título + Reloj */
+.countdown-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;      /* ESTO centra el título respecto al reloj */
+  gap: 12px;                /* Espacio entre el título y los números */
+  padding: 20px 25px;
+  background-color: #f8f9fa; /* Fondo muy claro para el marco */
+  border: 3px solid black; /* Borde sutil que "enmarca" todo */
+  border-radius: 20px;       /* Bordes redondeados para que combine con tu estilo */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Sombra suave */
+}
+
+/* 3. Estilo del Título */
+.countdown-titulo {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: #0f172a; /* Color oscuro profesional */
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0; /* Quita márgenes extra */
+}
+
+/* 4. El Reloj (los números) */
+.countdown-reloj {
+  display: flex;
+  gap: 20px;
+}
+
+.tiempo-unidad {
+  text-align: center;
+}
+
+.tiempo-unidad span {
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: var(--accent); /* Naranja de tu marca */
+  line-height: 1;
+}
+
+.tiempo-unidad p {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--muted); /* Gris de tu configuración */
+  margin: 5px 0 0 0;
+  text-transform: uppercase;
+}
+
+/* Responsivo para celulares */
+@media (max-width: 768px) {
+  .cta-compra-contenedor {
+    flex-direction: column;
+    gap: 25px;
+  }
+}
+
+/* =======================================================
+   SECCIÓN MÉTODOS DE PAGO (COMPLETO)
+   ======================================================= */
+.metodos-pago-compacto {
+  margin-top: 50px; /* Cercano al botón de compra */
+  text-align: center;
+  width: 100%;
+  padding-bottom: 40px;
+}
+
+.titulo-pagos {
+  font-size: 2.2rem; /* Letras grandes */
+  font-weight: 900;
+  color: #66280a; /* Color café de tu marca */
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.logos-pago-fila {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px; /* Espacio amplio entre logos */
+  flex-wrap: wrap;
+  padding: 0 20px;
+}
+
+.logos-pago-fila img {
+  height: 100px; /* TAMAÑO GRANDE DE LOGOS */
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+  /* Sombra elegante para que se vean profesionales */
+  filter: drop-shadow(0px 5px 10px rgba(0,0,0,0.12)); 
+}
+
+/* Efecto al pasar el mouse solo sobre los logos */
+.logos-pago-fila img:hover {
+  transform: scale(1.15); 
+}
+
+/* Ajuste automático para celulares */
+@media (max-width: 768px) {
+  .titulo-pagos {
+    font-size: 1.6rem;
+  }
+  .logos-pago-fila {
+    gap: 30px;
+  }
+  .logos-pago-fila img {
+    height: 60px; /* Un poco más pequeños en celular para que quepan */
+  }
+}
+
+/* ====== CUADRO DE ÉNFASIS CON ESQUINAS INTERACTIVAS ====== */
+.pago-instrucciones {
+  position: relative; /* ¡IMPORTANTE! Permite que las esquinas se posicionen respecto a esta caja */
+  margin: 45px auto 0; /* Un poco más de margen superior para dar espacio a los iconos */
+  max-width: 900px;
+  padding: 30px 40px;
+  background-color: #fffbe6;
+  border: 3px solid #66280a;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(102, 40, 10, 0.15);
+  display: inline-block;
+  overflow: visible; /* ¡CRUCIAL! Permite que los iconos se salgan del marco */
+}
+
+/* Estilo base para los iconos de las esquinas */
+.esquina-alerta {
+  position: absolute;
+  width: 45px;
+  height: 45px;
+  background-color: #ff5722; /* Tu color naranja de acento */
+  color: white;
+  border-radius: 50%; /* Los hace circulares */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 900;
+  font-size: 1.8rem;
+  border: 3px solid #ffffff; /* Un anillo blanco para separarlo del fondo */
+  top: -22px; /* Los sube para que queden mitad adentro, mitad afuera */
+  z-index: 10; /* Asegura que queden por encima del borde */
+  /* La animación de pulso constante */
+  animation: pulso-atencion 2s infinite ease-in-out;
+}
+
+/* Posicionamiento específico */
+.esquina-alerta.izquierda {
+  left: -22px; /* Lo mueve a la izquierda afuera del marco */
+  /* Un pequeño retraso en la animación para que no latan exactamente igual (más orgánico) */
+  animation-delay: 0s; 
+}
+
+.esquina-alerta.derecha {
+  right: -22px; /* Lo mueve a la derecha afuera del marco */
+  animation-delay: 0.3s; /* Pequeño desfase en el latido */
+}
+
+/* Estilos del texto (Igual que antes) */
+.pago-instrucciones p {
+  color: #662;
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.pago-instrucciones strong {
+  font-weight: 900;
+  color: #ff5722;
+  text-transform: uppercase;
+}
+
+/* =======================================================
+   SECCIÓN INSTRUCCIONES DE PAGO (CORREGIDO)
+   ======================================================= */
+
+
+/* Estilo base para las caritas */
+.esquina-alerta {
+  position: absolute;
+  top: -25px; /* Mitad afuera del borde superior */
+  width: 60px;
+  height: 60px;
+  background-color: white; /* Fondo blanco circular para que resalte */
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem; /* Tamaño del emoji */
+  z-index: 10;
+  border: 3px solid #66280a; /* Borde que combina con la caja */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  animation: pulso-atencion 2s infinite ease-in-out;
+}
+
+/* POSICIONAMIENTO ESPECÍFICO */
+.esquina-alerta.izquierda {
+  left: -30px; /* Se ancla a la izquierda */
+}
+
+.esquina-alerta.derecha {
+  right: -30px; /* Se ancla a la derecha */
+}
+
+/* EFECTO ESPEJO PARA LOS GUIÑOS */
+/* Por defecto el emoji guiña un ojo. Al voltear el de la derecha, guiñará el otro. */
+.esquina-alerta.derecha span {
+  display: inline-block;
+  transform: scaleX(-1); 
+}
+
+/* Texto dentro de la caja */
+.pago-instrucciones p {
+  color: #66280a;
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.pago-instrucciones strong {
+  font-weight: 900;
+  color: #ff5722;
+  text-transform: uppercase;
+}
+
+/* ANIMACIÓN DE PULSO */
+@keyframes pulso-atencion {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); } /* Crece un poquito */
+  100% { transform: scale(1); }
+}
+
+/* AJUSTE PARA MÓVILES */
+@media (max-width: 768px) {
+  .pago-instrucciones {
+    margin: 50px 20px;
+    padding: 25px;
+  }
+  .esquina-alerta {
+    width: 45px;
+    height: 45px;
+    font-size: 1.8rem;
+    top: -22px;
+  }
+  .esquina-alerta.izquierda { left: -15px; }
+  .esquina-alerta.derecha { right: -15px; }
+  .pago-instrucciones p { font-size: 1.2rem; }
+}
+
+/* ====== SECCIÓN FAQ ====== */
+#faq-section {
+  padding: 60px 0;
+  background-color: #fcfcfc;
+}
+
+.titulo-seccion-faq {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #66280a;
+  font-weight: 900;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+}
+
+.faq-contenedor {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  background: white;
+  margin-bottom: 15px;
+  border-radius: 15px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.faq-pregunta {
+  width: 100%;
+  padding: 22px 30px;
+  background: none;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  text-align: left;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: black;
+  transition: color 0.3s ease;
+}
+
+.faq-item.active .faq-pregunta {
+  color: var(--accent);
+}
+
+.faq-icono {
+  font-style: normal;
+  font-size: 1.8rem;
+  color: var(--accent);
+  transition: transform 0.4s ease;
+}
+
+.faq-item.active .faq-icono {
+  transform: rotate(45deg); /* Convierte el + en una X */
+}
+
+.faq-respuesta {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: #fff;
+}
+
+.faq-respuesta p {
+  padding: 0 30px 25px 30px;
+  margin: 0;
+  color: blacl;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.faq-item.active .faq-respuesta {
+  max-height: 300px; /* Ajusta según el largo del texto */
+}
+
+@media (max-width: 768px) {
+  .titulo-seccion-faq { font-size: 1.8rem; }
+  .faq-pregunta { font-size: 1rem; padding: 18px 20px; }
+}
+
+/* ====== BOTÓN FLOTANTE WHATSAPP ====== */
+.btn-whatsapp-flotante {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 25px;
+    right: 25px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 1000; /* Alto z-index para que flote sobre todo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.btn-whatsapp-flotante:hover {
+    transform: scale(1.1);
+    box-shadow: 2px 2px 10px #666;
+}
+
+.btn-whatsapp-flotante img {
+    width: 35px;
+    height: 35px;
+}
+
+/* ====== SECCIÓN SIMULADORES (NUEVO) ====== */
+.grid-simuladores {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+.card-simulador {
+  background: white;
+  padding: 2rem;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  text-align: center;
+  transition: 0.3s;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow);
+}
+.card-simulador:hover { transform: translateY(-10px); border-color: var(--accent); }
+.card-simulador img { height: 80px; width: auto; margin: 0 auto 1.5rem; object-fit: contain; }
+.card-simulador h3 { font-size: 1.3rem; margin-bottom: 1rem; color: var(--brown); }
+.card-simulador p { font-size: 0.95rem; color: var(--muted); flex-grow: 1; margin-bottom: 1.5rem; }
+.card-simulador .precio { font-size: 1.8rem; font-weight: 900; color: var(--accent); margin-bottom: 1.5rem; }
+.badge-popular {
+  position: absolute; top: 15px; right: 15px;
+  background: var(--accent); color: white;
+  padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 800;
+  text-transform: uppercase;
+}
+
+/* ====== FOOTER MEJORADO ====== */
+.main-footer {
+  background-color: #1a1a1a; /* Un tono casi negro para dar elegancia */
+  color: #ffffff;
+  padding: 40px 0;
+  text-align: center;
+  border-top: 5px solid var(--accent); /* Línea naranja superior para dar continuidad */
+  margin-top: 50px;
+}
+
+.footer-content p {
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  margin: 0;
+  opacity: 0.9;
+}
+
+.footer-brand {
+  color: var(--accent); /* Nombre en naranja para que resalte */
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.footer-links {
+  margin-top: 10px;
+  font-size: 0.85rem;
+  color: #888;
+}
+
+/* Ajuste para móviles */
+@media (max-width: 768px) {
+  .main-footer {
+    padding: 30px 20px;
+  }
+  .footer-content p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+}
+
+/* Estilo para la tarjeta limpia de universidad */
+.card-simple {
+    text-decoration: none;
+    max-width: 350px;
+    padding: 3rem 2rem !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.card-simple h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: var(--brown);
+}
+
+.card-simple:hover {
+    border-color: var(--accent);
+    transform: scale(1.05);
+}
+
+/* Cuadrícula para las 12+ universidades */
+.grid-universidades-limpio {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+/* Tarjeta solo Logo y Nombre */
+.card-universidad-simple {
+  background: white;
+  padding: 2.5rem 1.5rem;
+  border-radius: 15px;
+  border: 2px solid var(--border);
+  text-align: center;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+}
+
+.card-universidad-simple:hover {
+  border-color: var(--accent);
+  transform: translateY(-5px);
+  box-shadow: var(--shadow);
+}
+
+.card-universidad-simple img {
+  height: 100px;
+  width: auto;
+  margin-bottom: 1.5rem;
+  object-fit: contain;
+}
+
+.card-universidad-simple h3 {
+  font-size: 1.1rem;
+  color: var(--brown);
+  font-weight: 800;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+/* Cuadrícula para los 10 simuladores de la subpestaña */
+.grid-diez-simuladores {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.card-simulador-item {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+.card-simulador-item h4 {
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+/* ====== SECCIÓN SIMULADORES (NUEVO) ====== */
+.grid-simuladores {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+.card-simulador {
+  background: white;
+  padding: 2rem;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  text-align: center;
+  transition: 0.3s;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow);
+}
+.card-simulador:hover { transform: translateY(-10px); border-color: var(--accent); }
+.card-simulador img { height: 80px; width: auto; margin: 0 auto 1.5rem; object-fit: contain; }
+.card-simulador h3 { font-size: 1.3rem; margin-bottom: 1rem; color: var(--brown); }
+.card-simulador p { font-size: 0.95rem; color: var(--muted); flex-grow: 1; margin-bottom: 1.5rem; }
+.card-simulador .precio { font-size: 1.8rem; font-weight: 900; color: var(--accent); margin-bottom: 1.5rem; }
+.badge-popular {
+  position: absolute; top: 15px; right: 15px;
+  background: var(--accent); color: white;
+  padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 800;
+  text-transform: uppercase;
+}
+
+/* ====== FOOTER MEJORADO ====== */
+.main-footer {
+  background-color: #1a1a1a; /* Un tono casi negro para dar elegancia */
+  color: #ffffff;
+  padding: 40px 0;
+  text-align: center;
+  border-top: 5px solid var(--accent); /* Línea naranja superior para dar continuidad */
+  margin-top: 50px;
+}
+
+.footer-content p {
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  margin: 0;
+  opacity: 0.9;
+}
+
+.footer-brand {
+  color: var(--accent); /* Nombre en naranja para que resalte */
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.footer-links {
+  margin-top: 10px;
+  font-size: 0.85rem;
+  color: #888;
+}
+
+/* Ajuste para móviles */
+@media (max-width: 768px) {
+  .main-footer {
+    padding: 30px 20px;
+  }
+  .footer-content p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+}
+
+/* Estilo para la tarjeta limpia de universidad */
+.card-simple {
+    text-decoration: none;
+    max-width: 350px;
+    padding: 3rem 2rem !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.card-simple h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: var(--brown);
+}
+
+.card-simple:hover {
+    border-color: var(--accent);
+    transform: scale(1.05);
+}
+
+/* Cuadrícula para las 12 universidades */
+.grid-universidades-12 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.card-uni {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  border: 2px solid #eee;
+  text-align: center;
+  transition: 0.3s ease;
+}
+
+.card-uni:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow);
+  transform: translateY(-5px);
+}
+
+.card-uni img {
+  height: 80px;
+  width: auto;
+  margin-bottom: 1rem;
+  object-fit: contain;
+}
+
+.card-uni h3 {
+  font-size: 1rem;
+  color: var(--text);
+  margin: 0;
+}
+
+/* ====== MEJORA DE TARJETAS DE UNIVERSIDAD ====== */
+.grid-universidades-12 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+}
+
+.card-uni {
+  background: white;
+  padding: 2.5rem 1.5rem;
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Alinea el botón siempre abajo */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+}
+
+.card-uni:hover {
+  transform: translateY(-10px);
+  border-color: var(--accent);
+  box-shadow: 0 15px 30px rgba(255, 87, 34, 0.1);
+}
+
+.card-uni img {
+  height: 90px;
+  width: auto;
+  margin: 0 auto 1.5rem;
+  object-fit: contain;
+  filter: grayscale(20%); /* Efecto visual elegante */
+  transition: 0.3s;
+}
+
+.card-uni:hover img {
+  filter: grayscale(0%);
+  transform: scale(1.1);
+}
+
+.card-uni h3 {
+  font-size: 1.2rem;
+  color: var(--brown);
+  margin-bottom: 1rem;
+  font-weight: 800;
+  min-height: 3rem; /* Asegura que títulos largos no muevan todo */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-uni p {
+  font-size: 0.9rem;
+  color: black;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  flex-grow: 1; /* Empuja el precio y botón hacia abajo */
+}
+
+.card-uni .precio {
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: var(--text);
+  margin-bottom: 1.5rem;
+}
+
+.card-uni .precio::before {
+  content: "INVERSIÓN ";
+  font-size: 0.8rem;
+  color: black;
+  display: block;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+/* Badge de "Más buscado" */
+.badge-popular {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: var(--accent);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.compra-simuladores {
+  padding: 5rem 0;
+  background-color: #f9f9f9; /* Fondo suave para resaltar las cajas */
+}
+
+.grid-dos-columnas {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr; /* La izquierda un poco más ancha */
+  gap: 3rem;
+  align-items: center;
+}
+
+/* Estilo de las Cajas/Tarjetas de Beneficios */
+.beneficio-card {
+  background: white;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  border-radius: 15px;
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Sombra elegante */
+  border: 1px solid #eee;
+  transition: transform 0.3s ease;
+}
+
+/* Reemplaza todo el bloque de .beneficio-card con esto */
+
+.beneficio-card {
+  background: white;
+  padding: 0.6rem 1.2rem; /* Mucho más ajustado al texto */
+  margin-bottom: 0.8rem;   /* Menos separación entre cajas */
+  border-radius: 10px;    /* Bordes un poco más finos para el nuevo tamaño */
+  display: flex;
+  align-items: center;    /* Centra el check verticalmente con el texto */
+  gap: 12px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+  border: 1px solid #eee;
+  
+  /* ESTO ES LO QUE PERMITE LA ANIMACIÓN */
+  transition: all 0.3s ease; 
+  cursor: pointer;
+}
+
+/* ESTE ES EL EFECTO INTERACTIVO QUE SE HABÍA PERDIDO */
+.beneficio-card:hover {
+  transform: translateX(10px); /* Se mueve a la derecha */
+  border-color: var(--accent);   /* El borde cambia a tu color naranja */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* La sombra se intensifica un poco */
+}
+
+.beneficio-card p {
+  font-size: 1rem; /* Tamaño de fuente más equilibrado para cajas compactas */
+  margin: 0;
+  color: var(--text);
+  line-height: 1.4;
+}
+
+.beneficio-card .emoji {
+  font-size: 1.3rem;
+  flex-shrink: 0; /* Evita que el emoji se aplaste si el texto es largo */
+}
+.beneficio-card p {
+  font-size: 1.2rem; /* Texto más grande */
+  margin: 0;
+  color: var(--text);
+}
+
+.beneficio-card .emoji {
+  font-size: 1.5rem;
+}
+
+/* Caja de la Derecha (CTA) */
+.columna-accion-box {
+  background: white;
+  padding: 3rem 2rem;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  border-top: 5px solid var(--accent); /* Detalle de color arriba */
+}
+
+.columna-accion-box h2 {
+  font-size: 2.5rem;
+  color: var(--brown);
+  margin-bottom: 1rem;
+}
+
+.columna-accion-box p {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+/* Responsivo para celulares */
+@media (max-width: 992px) {
+  .grid-dos-columnas {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ============================================================
+   NUEVO ESTILO ELEGANTE PARA CARACTERÍSTICAS Y METODOLOGÍA
+   (Este bloque sobrescribe los estilos anteriores)
+   ============================================================ */
+
+#evaluacion-simuladores {
+    padding: 4rem 0;
+    background-color: #fcfcfc; /* Un fondo gris casi blanco para dar contraste */
+}
+
+/* La Tarjeta: Sombra suave y bordes finos en lugar de verde grueso */
+.card-personalizada {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: #ffffff !important;
+    border: 1px solid #e2e8f0 !important; /* Borde gris muy suave */
+    border-radius: 20px !important;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important; /* Sombra moderna */
+    transition: transform 0.3s ease;
+}
+
+.card-personalizada:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Encabezado: Texto café con una línea naranja a la izquierda */
+.header-caja {
+    background-color: #ffffff !important;
+    color: var(--brown) !important;
+    padding: 1.5rem 1.5rem 0.5rem 1.5rem !important;
+    font-weight: 800 !important;
+    text-align: left !important; /* Alineado a la izquierda es más elegante */
+    font-size: 1.1rem !important;
+    border-left: 5px solid var(--accent); /* El detalle naranja */
+    margin: 1.5rem 0 0 1.5rem !important;
+}
+
+/* El Cuerpo: Fondo blanco y texto más limpio */
+.body-negro {
+    background-color: transparent !important; 
+    color: #4b5563 !important; /* Gris oscuro profesional */
+    padding: 1.5rem 2rem 2rem 2rem !important;
+}
+
+/* Ajuste de listas */
+.lista-emojis li, .lista-numerada-blanca li {
+    font-size: 1rem !important;
+    color: #374151 !important;
+    margin-bottom: 15px !important;
+    text-align: left !important;
+}
+
+/* Números de la metodología en naranja */
+.lista-numerada-blanca li::before {
+    color: var(--accent) !important;
+    font-weight: 900 !important;
+}
+
+/* La cajita "NO MÁS MÉTODOS ABURRIDOS" con estilo minimalista */
+.caja-blanca-metodos {
+    background-color: #fff7ed !important; /* Crema suave */
+    color: var(--accent) !important;
+    border: 1px dashed var(--accent) !important;
+    font-weight: 700 !important;
+    border-radius: 12px !important;
+}
+
+/* Imagen central con sombra y sin borde naranja grueso */
+.img-redondeada {
+    border: none !important;
+    border-radius: 20px !important;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1) !important;
+}
+
+/* ============================================================
+   REDISEÑO SÓLIDO Y ELEGANTE (SIN CAMBIAR ESTRUCTURA)
+   ============================================================ */
+
+/* Fondo de la sección para dar contraste */
+#evaluacion-simuladores {
+    background-color: #f4f7f6 !important; 
+    padding: 20px 0 !important;
+}
+
+/* La Tarjeta: Bordes definidos y sombra limpia */
+.card-personalizada {
+    background-color: #ffffff !important;
+    border: none !important;
+    border-radius: 16px !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
+    transition: all 0.3s ease !important;
+    overflow: hidden !important;
+}
+
+/* Encabezado: Color sólido y tipografía imponente */
+.header-caja {
+    background-color: var(--brown) !important; /* Tu color café sólido */
+    color: #ffffff !important;
+    padding: 1.5rem !important;
+    font-weight: 800 !important;
+    text-align: center !important;
+    font-size: 1.1rem !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0 !important; /* Eliminamos márgenes para que sea un bloque sólido */
+}
+
+/* Cuerpo de la tarjeta */
+.body-negro {
+    background-color: #ffffff !important;
+    color: #334155 !important;
+    padding: 2rem !important;
+}
+
+/* Listas: Mejora de iconos y espaciado */
+.lista-emojis li, .lista-numerada-blanca li {
+    margin-bottom: 15px !important;
+    font-size: 1rem !important;
+    line-height: 1.4 !important;
+    font-weight: 500 !important;
+}
+
+/* El toque especial: Números sólidos en la metodología */
+.lista-numerada-blanca li::before {
+    color: var(--accent) !important;
+    font-weight: 900 !important;
+    background: #fff1ec;
+    padding: 2px 8px;
+    border-radius: 6px;
+    margin-right: 8px;
+}
+
+/* --- LA PARTE QUE QUERÍAS MEJORAR --- */
+/* "NO MÁS MÉTODOS ABURRIDOS": Color sólido y vibrante */
+.caja-blanca-metodos {
+    background-color: var(--accent) !important; /* Naranja sólido */
+    color: #ffffff !important; /* Texto blanco para máximo contraste */
+    border: none !important;
+    font-weight: 800 !important;
+    padding: 15px !important;
+    border-radius: 10px !important;
+    margin-top: 25px !important;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 0.85rem !important;
+    box-shadow: 0 4px 12px rgba(255, 87, 34, 0.3) !important; /* Sombra naranja */
+    letter-spacing: 0.5px;
+}
+
+/* Imagen central: Limpia y con marco profesional */
+.img-redondeada {
+    border: 10px solid #ffffff !important;
+    border-radius: 20px !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important;
+}
+
+/* Justificar el texto en la sección de Características */
+.lista-emojis li {
+    text-align: justify !important;
+    text-justify: inter-word; /* Mejora el espaciado entre palabras al justificar */
+hyphens: auto; /* Corta las palabras largas con guiones si es necesario para un mejor ajuste */
+}
+
+/* Justificar el texto de la sección de Metodología */
+.lista-numerada-blanca li {
+    text-align: justify !important;
+    text-justify: inter-word;
+    hyphens: auto; /* Corta las palabras largas con guiones si es necesario para un mejor ajuste */
+}
+
+
+
+/* ====== AJUSTES PERSONALIZADOS DEL TEST VOCACIONAL ====== */
+
+/* Tamaño para la pregunta (primera línea) */
+.test-titulo-grande {
+    font-size: 3.5rem !important; /* Cambia este número para agrandar o achicar */
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #ffffff;
+    line-height: 1.2;
+}
+
+/* Tamaño para la descripción (segunda línea) */
+.test-subtitulo-grande {
+    font-size: 2rem !important; /* Cambia este número para la segunda línea */
+    font-weight: 400;
+    color: solid white; /* Un blanco ligeramente grisáceo para que no brille tanto como el título */
+    max-width: 900px;
+    margin: 0 auto;
+
+}
+
+/* Ajuste opcional para celulares */
+@media (max-width: 768px) {
+    .test-titulo-grande {
+        font-size: 2.2rem !important;
+    }
+    .test-subtitulo-grande {
+        font-size: 1.2rem !important;
+    }
+}
+
+
+/* ====== AJUSTES DE ESPACIO Y TAMAÑO DEL BANNER DEL TEST ====== */
+
+#test-vocacional-section .mission-banner {
+    /* 1. CONTROL VERTICAL: Ajusta estos números para reducir la altura del banner */
+    padding-top: 10px !important;    /* Espacio interno arriba */
+    padding-bottom: 10px !important; /* Espacio interno abajo */
+    
+    /* 2. MÁRGENES EXTERNOS: Ajusta el espacio que separa este banner de lo que hay arriba/abajo */
+    margin-top: 0px !important;     /* Distancia con la sección anterior */
+    margin-bottom: 30px !important;  /* Distancia con el simulador/iframe de abajo */
+    
+    /* Opcional: Si quieres que la imagen de fondo se vea más o menos */
+    min-height: auto !important;     /* Elimina alturas mínimas heredadas */
+}
+
+/* Si quieres mover específicamente el bloque de texto dentro del banner */
+#test-vocacional-section .mission-banner .container {
+    padding: 0 20px; /* Margen lateral interno */
+}
+
+
+/* ====== CONTROL TOTAL: BANNER TEST VOCACIONAL ====== */
+
+#test-vocacional-section .mission-banner {
+    /* --- 1. CONTROL VERTICAL (ALTURA DEL BANNER) --- */
+    padding-top: 30px !important;    /* Ajusta para reducir/agrandar altura arriba */
+    padding-bottom: 30px !important; /* Ajusta para reducir/agrandar altura abajo */
+    
+    /* --- 2. MÁRGENES EXTERNOS --- */
+    margin-top: 10px !important;     /* Espacio con lo que está arriba */
+    margin-bottom: 20px !important;  /* Espacio con el test de abajo */
+    
+    min-height: auto !important;     /* Permite que la franja sea delgada */
+}
+
+/* --- 3. CONTROL HORIZONTAL (ANCHO DEL TEXTO) --- */
+.test-titulo-personalizado, 
+.test-descripcion-personalizada {
+    max-width: 100% !important;  /* ¡IMPORTANTE! Esto hace que use todo el ancho horizontal */
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    text-align: center;
+}
+
+/* --- 4. TAMAÑO DE LETRA INDEPENDIENTE --- */
+.test-titulo-personalizado {
+    font-size: 3.2rem !important; /* Tamaño línea 1 */
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.test-descripcion-personalizada {
+    font-size: 2rem !important; /* Tamaño línea 2 */
+    color: solid white;
+    line-height: 1.2;             /* Espacio entre líneas de un mismo párrafo */
+}
+
+/* Ajuste para pantallas pequeñas (Celulares) */
+@media (max-width: 768px) {
+    .test-titulo-personalizado { font-size: 2rem !important; }
+    .test-descripcion-personalizada { font-size: 1.1rem !important; }
+}
+
+/* ============================================================
+   LIMPIEZA RADICAL DEL BANNER - COPIA DESDE AQUÍ
+   ============================================================ */
+
+/* 1. Forzar fondo blanco y eliminar imagen/gradiente */
+#test-vocacional-section .mission-banner {
+    background: #ffffff !important;         /* Fondo blanco puro */
+    background-image: none !important;      /* Borra la foto */
+    background-color: #ffffff !important;   /* Asegura el blanco */
+    padding-top: 40px !important;           /* Espacio arriba */
+    padding-bottom: 40px !important;        /* Espacio abajo */
+    min-height: auto !important;            /* Que no sea gigante */
+    box-shadow: none !important;            /* Sin sombras */
+}
+
+/* 2. Forzar letras ROJAS para el Título */
+#test-vocacional-section .test-titulo-personalizado {
+    color: #AC0000 !important;              /* ROJO */
+    font-size: 3.2rem !important;           /* Tamaño solicitado */
+    text-align: center !important;
+    font-weight: bold !important;
+    display: block !important;
+    margin-bottom: 15px !important;
+}
+
+/* 3. Forzar letras ROJAS para la Descripción */
+#test-vocacional-section .test-descripcion-personalizada,
+#test-vocacional-section .test-descripcion-personalizada strong {
+    color: #AC0000 !important;              /* ROJO */
+    font-size: 1.8rem !important;           /* Tamaño solicitado */
+    text-align: center !important;
+    display: block !important;
+    background: transparent !important;     /* Sin fondos raros */
+}
+
+/* 4. Quitar filtros oscuros que puedan sobrar */
+#test-vocacional-section .mission-banner::before,
+#test-vocacional-section .mission-banner::after {
+    display: none !important;
+}
+
+/* Ajustar la altura del banner de Misión y Visión */
+#quienes-somos-section .mission-banner {
+    padding-top: 40px !important;    /* Espacio arriba del texto */
+    padding-bottom: 40px !important; /* Espacio abajo del texto */
+    min-height: 200px !important;     /* Altura mínima total (opcional) */
+}
+
+/* Caja elegante para Quiénes Somos con texto NEGRO y MÁS GRANDE */
+#quienes-somos-section .page-header {
+    background: #ffffff; 
+    padding: 50px; /* Más espacio interno para elegancia */
+    border-radius: 20px; 
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08); 
+    border-left: 6px solid var(--accent); /* Línea de acento más gruesa */
+    margin: 50px auto;
+    max-width: 1000px; /* Un poco más ancho para el texto grande */
+    text-align: left;
+}
+
+/* Título en negro */
+#quienes-somos-section .page-header h1 {
+    color: #000000 !important; 
+    font-size: 3rem; /* Título más imponente */
+    margin-bottom: 25px;
+    font-weight: 800;
+}
+
+/* Párrafo descriptivo en NEGRO y MÁS GRANDE */
+#quienes-somos-section .page-header p {
+    color: #000000 !important; 
+    font-size: 1.2rem !important; /* Tamaño de letra aumentado */
+    line-height: 1.8;
+    text-align: justify; 
+    margin: 0;
+    font-weight: 500; /* Un poco más de cuerpo para que resalte el negro */
+}
+
+/* Ajuste de legibilidad para móviles */
+@media (max-width: 768px) {
+    #quienes-somos-section .page-header {
+        padding: 30px 20px;
+    }
+    #quienes-somos-section .page-header p {
+        font-size: 1.2rem !important; /* Un poco más pequeño en celulares para que no desborde */
+        text-align: left; /* Mejor lectura en pantallas pequeñas */
+    }
+}
+
+/* =======================================================
+   ESTILOS FINALES: EMOJIS ÚNICOS POR CADA VALOR
+   ======================================================= */
+
+/* 1. Mantenemos el formato de tarjeta elegante para los textos */
+#quienes-somos-section .about-us-card.text-card {
+    background: #ffffff !important;
+    padding: 40px !important;
+    border-radius: 20px !important;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08) !important;
+    border-left: 6px solid var(--accent) !important;
+    text-align: left !important;
+}
+
+/* 2. Ocultamos el visto (✓) original */
+#quienes-somos-section .value-icon {
+    font-size: 0; 
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+}
+
+/* 3. Asignamos un emoji diferente a cada ítem por su posición */
+
+/* Ítem 1: Conocimientos */
+#quienes-somos-section .value-item:nth-child(1) .value-icon::before {
+    content: "🧠"; 
+    font-size: 1.6rem;
+    visibility: visible;
+}
+
+/* Ítem 2: Compromiso */
+#quienes-somos-section .value-item:nth-child(2) .value-icon::before {
+    content: "🤝"; 
+    font-size: 1.6rem;
+    visibility: visible;
+}
+
+/* Ítem 3: Empatía */
+#quienes-somos-section .value-item:nth-child(3) .value-icon::before {
+    content: "❤️"; 
+    font-size: 1.6rem;
+    visibility: visible;
+}
+
+/* Ítem 4: Conciencia económica */
+#quienes-somos-section .value-item:nth-child(4) .value-icon::before {
+    content: "💸"; 
+    font-size: 1.6rem;
+    visibility: visible;
+}
+
+/* 4. Estilos de texto para que combinen con el header */
+#quienes-somos-section .value-item h3 {
+    margin: 0;
+    font-size: 1.35rem !important;
+    color: #000000 !important;
+    font-weight: 700;
+}
+
+#quienes-somos-section .about-us-card.text-card h2 {
+    color: #000000 !important;
+    font-size: 2.2rem !important;
+    font-weight: 800 !important;
+    margin-bottom: 20px !important;
+}
+
+#quienes-somos-section .about-us-card.text-card p {
+    color: #333333 !important;
+    font-size: 1.15rem !important;
+    line-height: 1.7 !important;
+}
+
+/* =======================================================
+   AJUSTE DE EMOJIS MÁS GRANDES Y LLAMATIVOS
+   ======================================================= */
+
+/* Ampliamos el contenedor del icono para que quepan emojis grandes */
+#quienes-somos-section .value-icon {
+    font-size: 0; 
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px; /* Aumentado de 35px a 50px */
+    margin-right: 10px;
+}
+
+/* Estilo base para los emojis grandes */
+#quienes-somos-section .value-item .value-icon::before {
+    font-size: 2.5rem !important; /* Tamaño aumentado (estaba en 1.6rem) */
+    visibility: visible;
+    transition: transform 0.3s ease;
+}
+
+/* Efecto opcional: el emoji crece un poquito al pasar el mouse por la tarjeta */
+#quienes-somos-section .about-us-card.text-card:hover .value-icon::before {
+    transform: scale(1.2);
+}
+
+/* Ítem 1: Conocimientos */
+#quienes-somos-section .value-item:nth-child(1) .value-icon::before {
+    content: "👨🏼‍🔬"; 
+}
+
+/* Ítem 2: Compromiso */
+#quienes-somos-section .value-item:nth-child(2) .value-icon::before {
+    content: "🤝"; 
+}
+
+/* Ítem 3: Empatía */
+#quienes-somos-section .value-item:nth-child(3) .value-icon::before {
+    content: "❤️"; 
+}
+
+/* Ítem 4: Conciencia económica */
+#quienes-somos-section .value-item:nth-child(4) .value-icon::before {
+    content: "💸"; 
+}
+
+/* Ajuste del título al lado del emoji para que se vea alineado */
+#quienes-somos-section .value-item h3 {
+    margin: 0;
+    font-size: 1.4rem !important;
+    font-weight: 700;
+}
+
+/* =======================================================
+   ESTILOS FINALES: QUIÉNES SOMOS PRO (TARJETAS + TEXTO + EMOJIS)
+   ======================================================= */
+
+/* 1. Formato de las Tarjetas (Fondo blanco, sombra y borde naranja) */
+#quienes-somos-section .about-us-card.text-card {
+    background: #ffffff !important;
+    padding: 45px !important;
+    border-radius: 20px !important;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.07) !important;
+    border-left: 8px solid var(--accent) !important; /* Borde más marcado */
+    text-align: left !important;
+    margin-bottom: 30px;
+}
+
+/* 2. Aumento de tamaño del texto de acompañamiento/metodología */
+/* Esto afecta al párrafo largo que mencionaste */
+#quienes-somos-section .about-us-card.text-card p {
+    color: black !important;
+    font-size: 1.2rem !important; /* Tamaño aumentado */
+    line-height: 1.8 !important;   /* Espaciado elegante entre líneas */
+    font-weight: 400;
+    margin-bottom: 25px;
+}
+
+/* Títulos de las tarjetas (ej: Te entendemos perfectamente) */
+#quienes-somos-section .about-us-card.text-card h2 {
+    color: #000000 !important;
+    font-size: 2.5rem !important;
+    font-weight: 800 !important;
+    margin-bottom: 25px !important;
+    letter-spacing: -0.5px;
+}
+
+/* 3. Emojis Gigantes y Personalizados */
+#quienes-somos-section .value-icon {
+    font-size: 0; /* Oculta el ✓ original */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 65px; /* Espacio para el emoji grande */
+}
+
+#quienes-somos-section .value-item .value-icon::before {
+    font-size: 3.2rem !important; /* Emojis bien grandes */
+    visibility: visible;
+    transition: transform 0.3s ease;
+}
+
+/* Animación: Los emojis saltan un poco al pasar el mouse */
+#quienes-somos-section .about-us-card:hover .value-icon::before {
+    transform: scale(1.15) rotate(5deg);
+}
+
+/* Asignación de Emojis únicos */
+#quienes-somos-section .value-item:nth-child(1) .value-icon::before { content: "🧠"; }
+#quienes-somos-section .value-item:nth-child(2) .value-icon::before { content: "🤝"; }
+#quienes-somos-section .value-item:nth-child(3) .value-icon::before { content: "❤️"; }
+#quienes-somos-section .value-item:nth-child(4) .value-icon::before { content: "💸"; }
+
+/* 4. Estilo de los textos de la lista (Poseemos...) */
+#quienes-somos-section .value-item h3 {
+    margin: 0;
+    font-size: 1.5rem !important;
+    color: #000000 !important;
+    font-weight: 700;
+}
+
+#quienes-somos-section .value-item {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* =======================================================
+   AJUSTE FINAL: BLOQUE POSEEMOS (ESTILO LIMPIO Y ALINEADO)
+   ======================================================= */
+
+/* 1. La imagen mantiene su tamaño natural de la grilla */
+#quienes-somos-section .about-us-grid .about-us-card.image-card:nth-child(3) {
+    display: flex;
+    align-items: stretch;
+}
+
+#quienes-somos-section .about-us-grid .about-us-card.image-card:nth-child(3) img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Esto hace que la imagen llene el espacio sin deformarse */
+    border-radius: 15px;
+}
+
+/* 2. El recuadro de texto (Poseemos) ahora es transparente y alineado */
+#quienes-somos-section .about-us-grid .about-us-card.text-card:last-child {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 0 0 40px !important; /* Separación de la imagen */
+    
+    /* Alineación vertical con la imagen */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    margin: 0 !important;
+}
+
+/* 3. Título "Poseemos" más estilizado */
+#quienes-somos-section .about-us-grid .about-us-card.text-card:last-child h2 {
+    font-size: 1.8rem !important; /* Tamaño moderado */
+    color: var(--brown) !important;
+    margin-bottom: 20px !important;
+    border-left: 4px solid var(--accent);
+    padding-left: 15px;
+}
+
+/* 4. Formato de lista con estilo de "check" o fichas pequeñas */
+#quienes-somos-section .values-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px; /* Espaciado más compacto */
+}
+
+#quienes-somos-section .value-item {
+    background: #fff8f5; /* Un tono muy suave casi blanco */
+    border: 1px solid #ffe0d5;
+    padding: 10px 15px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    margin: 0 !important; /* Quita márgenes que sobran */
+}
+
+#quienes-somos-section .value-item h3 {
+    font-size: 1.1rem !important;
+    color: #444 !important;
+    margin: 0 !important;
+}
+
+/* Ajuste para que los emojis no se vean gigantes */
+#quienes-somos-section .value-item span {
+    font-size: 1.2rem;
+    margin-right: 10px;
+}
+
+/* Responsive: Para que en móviles no se pegue a la izquierda */
+@media (max-width: 768px) {
+    #quienes-somos-section .about-us-grid .about-us-card.text-card:last-child {
+        padding: 20px !important;
+        background: white !important; /* En móvil es mejor que tenga fondo */
+        border: 1px solid #eee !important;
+    }
+}
+
+/* =======================================================
+   ESTILO CORREGIDO: BORDE DERECHO + TEXTO A LA IZQUIERDA
+   ======================================================= */
+
+/* Seleccionamos la tarjeta de "Te entendemos..." */
+#quienes-somos-section .about-us-grid .about-us-card.text-card:first-child {
+    border-left: none !important;            /* Quitamos el borde izquierdo */
+    border-right: 8px solid var(--accent) !important; /* Movemos el borde a la derecha */
+    text-align: left !important;            /* MANTENEMOS EL TEXTO A LA IZQUIERDA */
+    padding-right: 45px !important;         /* Espacio para que el texto no pegue con el borde derecho */
+}
+
+/* Ajuste del párrafo "Queremos acompañarlos..." */
+#quienes-somos-section .about-us-grid .about-us-card.text-card:first-child p {
+    font-size: 1.4rem !important;           /* Tamaño aumentado */
+    line-height: 1.8 !important;
+    color: #1a1a1a !important;
+    text-align: left !important;            /* Aseguramos alineación izquierda */
+}
+
+/* Ajuste del título */
+#quienes-somos-section .about-us-grid .about-us-card.text-card:first-child h2 {
+    font-size: 2.6rem !important;
+    text-align: left !important;            /* Aseguramos alineación izquierda */
+}
+
+/* =======================================================
+   AJUSTE DE EQUILIBRIO: BOTÓN VS CONTADOR (Nuevo)
+   ======================================================= */
+
+/* 1. Hacemos el BOTÓN más grande e imponente */
+.cta-compra-contenedor .btn-naranja-redondeado {
+    font-size: 1.2rem !important;    /* Texto más grande */
+    padding: 20px 45px !important;   /* Botón más alto y ancho */
+    letter-spacing: 1px;             /* Espacio entre letras para elegancia */
+    display: flex;                   /* Asegura centrado perfecto */
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(255, 87, 34, 0.4); /* Sombra más fuerte */
+}
+
+/* 2. Hacemos el CONTADOR más compacto (pequeño) */
+.cta-compra-contenedor .countdown-wrapper {
+    padding: 10px 25px !important;   /* Reducimos el marco (antes era 20px) */
+    gap: 5px !important;             /* Menos espacio entre el título y los números */
+    border: 2px solid #333 !important; /* Borde un poco más fino */
+}
+
+/* Ajuste del título del contador */
+.cta-compra-contenedor .countdown-titulo {
+    font-size: 0.7rem !important;    /* Título más pequeño */
+    margin-bottom: 0 !important;
+}
+
+/* Ajuste de los números del reloj */
+.cta-compra-contenedor .tiempo-unidad span {
+    font-size: 1.3rem !important;    /* Números reducidos (antes 1.6rem) */
+}
+
+/* Ajuste de las etiquetas (Días, Horas, etc.) */
+.cta-compra-contenedor .tiempo-unidad p {
+    font-size: 0.65rem !important;   /* Texto inferior más pequeño */
+    margin-top: 2px !important;
+}
+
+/* Ajuste para móviles: que no se vean pegados si se ponen uno sobre otro */
+@media (max-width: 768px) {
+    .cta-compra-contenedor .btn-naranja-redondeado {
+        width: 100%;                /* Botón ancho completo en celular */
+        padding: 15px !important;    /* Un poco menos exagerado en móvil */
+    }
+}
+
+
+/* ====== TIRA DE LOGOS MINIATURA (A COLOR) ====== */
+.logos-universidades-mini {
+  display: flex;
+  flex-wrap: wrap;      /* Se ajustan si falta espacio */
+  gap: 15px;            /* Espacio entre ellos */
+  padding-left: 20px;   /* Sangría para alinear con el texto */
+  margin-top: 5px;      /* Un pequeño espacio arriba */
+  margin-bottom: 25px;  /* Espacio antes de la siguiente tarjeta */
+  align-items: center;
+}
+
+.logos-universidades-mini img {
+  height: 35px;         /* Tamaño ideal para que se vean bien pero no gigantes */
+  width: auto;
+  object-fit: contain;
+  
+  /* ESTILOS DE COLOR Y TRANSICIÓN */
+  opacity: 1;           /* Totalmente visibles */
+  filter: none;         /* Sin filtros, color original puro */
+  transition: transform 0.3s ease, filter 0.3s ease; /* Suaviza la animación */
+  cursor: pointer;         /* Cambia el cursor a '?' o mano para indicar que hay info (title) */
+}
+
+/* EFECTO AL PASAR EL MOUSE (HOVER) */
+.logos-universidades-mini img:hover {
+  transform: scale(1.5); /* Crecen un 20% */
+  /* Añade una sombra suave detrás del logo para que "flote" */
+  filter: drop-shadow(0 5px 5px rgba(0,0,0,0.3)); 
+  z-index: 10;           /* Asegura que el logo que crece se ponga encima de los otros */
+}
+
+/* Ajuste para celulares */
+@media (max-width: 768px) {
+  .logos-universidades-mini {
+    justify-content: center; /* Centrados */
+    padding-left: 0;
+    gap: 12px;
+  }
+  .logos-universidades-mini img {
+    height: 32px; /* Un poco más pequeños en móvil */
+  }
+}
+
+/* Contenedor para apilar los dos cuadros */
+.columna-derecha-contenedor {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Espacio entre las dos cajas */
+  justify-content: center;
+}
+
+/* Ajuste para que el cuadro de compra sea más compacto */
+.columna-accion-box {
+  padding: 25px 20px !important; /* Reducimos el relleno vertical */
+  margin: 0 !important;
+  min-height: auto !important; /* Evita que se estire demasiado */
+}
+
+/* Estilo para el nuevo recuadro de texto */
+.info-alerta-box {
+  background-color: #fff3cd; /* Un tono amarillo suave/alerta */
+  border-left: 5px solid #ffc107; /* Franja lateral de advertencia */
+  color: black; /* Color de texto que combina con el fondo */
+  padding: 20px;
+  border-radius: 12px;
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  text-align: justify;
+}
+
+.info-alerta-box p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.emoji-alerta {
+  font-size: 1.4rem;
+}
+
+/* Estilo actualizado para el recuadro de texto */
+.info-alerta-box {
+  background-color: #fff3cd; 
+  border-left: 5px solid #ffc107; 
+  color: black; 
+  padding: 20px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center; /* Cambiado a center para que el emoji grande se alinee bien */
+  gap: 20px; /* Un poco más de espacio por el tamaño del emoji */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  text-align: justify;
+}
+
+/* El estilo específico para hacer el emoji más grande */
+.emoji-alerta {
+  font-size: 3rem; /* Tamaño aumentado (antes era 1.4rem) */
+  line-height: 1;  /* Evita que el tamaño del emoji afecte el interlineado */
+  flex-shrink: 0;  /* Evita que el emoji se aplaste si el texto es largo */
+}
+
+.info-alerta-box p {
+  margin: 0;
+  font-size: 1rem; /* Un poquito más grande para legibilidad */
+  line-height: 1.5;
+}
+
+/* --- SECCIÓN TRABAJA CON NOSOTROS (ESTILO PREMIUM) --- */
+.header-trabaja h1 {
+    font-size: 3rem;
+    color: var(--accent); /* Usando el naranja de tu marca */
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: 800;
+}
+
+.trabaja-container-elegante {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Estilo para las 3 oraciones */
+.trabaja-preguntas {
+    margin-bottom: 4rem;
+}
+
+.pregunta-item {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    padding: 25px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border-left: 5px solid var(--accent);
+    transition: transform 0.3s ease;
+}
+
+.pregunta-item:hover {
+    transform: translateX(10px);
+}
+
+.pregunta-emoji {
+    font-size: 2.5rem;
+    margin-right: 20px;
+}
+
+.pregunta-item p {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* Bloque de Contacto y Formulario */
+.contacto-wrapper {
+    background: #fdfdfd;
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid #eee;
+    text-align: center;
+}
+
+.titulo-contactanos {
+    font-size: 2.2rem;
+    letter-spacing: 4px;
+    color: #222;
+    margin-bottom: 2rem;
+    font-weight: 900;
+}
+
+.instruccion-cuestionario {
+    color: #666;
+    margin-bottom: 25px;
+    font-style: italic;
+}
+
+/* Campos del Formulario */
+.form-group-premium {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.form-group-premium label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.form-group-premium input, 
+.form-group-premium select {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #e1e1e1;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.form-group-premium input:focus {
+    border-color: var(--accent);
+    outline: none;
+}
+
+/* Botón Final */
+.btn-enviar-postulacion {
+    background: #222;
+    color: #fff;
+    padding: 18px 45px;
+    border: none;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.btn-enviar-postulacion:hover {
+    background: var(--accent);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 25px rgba(255, 87, 34, 0.2);
+}
