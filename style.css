@@ -2261,7 +2261,7 @@ hyphens: auto; /* Corta las palabras largas con guiones si es necesario para un 
 /* --- SECCIÓN TRABAJA CON NOSOTROS (ESTILO PREMIUM) --- */
 .header-trabaja h1 {
     font-size: 3rem;
-    color: var(--accent); /* Usando el naranja de tu marca */
+    color: #002856; /* Usando el naranja de tu marca */
     text-align: center;
     margin-bottom: 2rem;
     font-weight: 800;
@@ -2286,8 +2286,8 @@ hyphens: auto; /* Corta las palabras largas con guiones si es necesario para un 
     margin-bottom: 20px;
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    border-left: 5px solid var(--accent);
-    transition: transform 0.3s ease;
+    border: 3px solid #002856;
+    transition: transform 1000000000000000s ease;
 }
 
 .pregunta-item:hover {
@@ -2327,7 +2327,7 @@ hyphens: auto; /* Corta las palabras largas con guiones si es necesario para un 
 .instruccion-cuestionario {
     color: #666;
     margin-bottom: 25px;
-    font-style: italic;
+    font-style: bold;
 }
 
 /* Campos del Formulario */
@@ -2378,3 +2378,49 @@ hyphens: auto; /* Corta las palabras largas con guiones si es necesario para un 
     transform: translateY(-3px);
     box-shadow: 0 15px 25px rgba(255, 87, 34, 0.2);
 }
+
+/* --- Ajustes para la sección Trabaja con Nosotros --- */
+
+.perfiles-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Espacio entre los cuadros */
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.perfil-card {
+    /* 1. Borde naranja completo */
+    border: 2px solid var(--accent) !important; 
+    
+    /* 2. Margen y Espaciado */
+    margin: 10px; 
+    padding: 25px;
+    border-radius: 15px;
+    background: #fff;
+    
+    /* 3. Quitar interactividad (Fijo) */
+    transition: none !important; /* Elimina animaciones */
+    transform: none !important;  /* Evita que se mueva */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05); /* Sombra suave estática */
+    
+    flex: 1;
+    min-width: 280px;
+    max-width: 350px;
+    text-align: center;
+}
+
+/* Eliminamos específicamente cualquier efecto al pasar el mouse */
+.perfil-card:hover {
+    transform: none !important;      /* No se eleva */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05) !important; /* Mantiene la misma sombra */
+    background-color: #fff !important; /* No cambia de color de fondo */
+    cursor: pointer; /* Mantenemos el puntero porque aún son clickeables para abrir el formulario */
+}
+
+.perfil-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    display: block;
+}
+
