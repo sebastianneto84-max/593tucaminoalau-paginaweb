@@ -2031,9 +2031,10 @@ hyphens: auto; /* Corta las palabras largas con guiones si es necesario para un 
 /* 3. Título "Poseemos" más estilizado */
 #quienes-somos-section .about-us-grid .about-us-card.text-card:last-child h2 {
     font-size: 1.8rem !important; /* Tamaño moderado */
+    text-align: center !important;
     color: var(--brown) !important;
     margin-bottom: 20px !important;
-    border-left: 4px solid var(--accent);
+    border-left: 0px solid var(--accent);
     padding-left: 15px;
 }
 
